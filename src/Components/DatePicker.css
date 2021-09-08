@@ -1,0 +1,69 @@
+.card {
+  list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    margin: 25px 0 0 0;
+    padding: 0;
+    margin: 0;
+    width: 80%;
+    background: none;
+    overflow: hidden;
+    border: none;
+}
+
+.card li {
+  float: left;
+    margin: 0 20px 0 0;
+    width: 100px;
+    min-width: 225px;
+    height: 275px;
+    position: relative;
+    color: #fff;
+    font-size: 30px;
+}
+
+.card label,
+.card input {
+  display: inline;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.card input[type="radio"] {
+  opacity: 0.011;
+  z-index: 100;
+}
+
+.card input[type="radio"]:checked + label {
+  background: #fff;
+  color: #000;
+    border-bottom-color: #702b84;
+        box-shadow: inset 0 -5px 0 #702b84;
+}
+
+.card input[type="radio"]:checked + label + label{
+  color: #000;
+}
+
+.card label {
+  padding: 5px;
+  border: 1px solid #fff;
+  cursor: pointer;
+  z-index: 90;
+}
+.card li label:last-child {
+    padding-top: 52px;
+    padding-left: 20px;
+}
+.card li:hover label {
+  background: #fff;
+    color: #000;
+    box-shadow: inset 0 -5px 0 #702b84;
+}
+.card li:hover {
+  color: #000;
+}

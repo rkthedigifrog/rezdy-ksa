@@ -1,0 +1,39 @@
+@tailwind base;
+
+/* Your own custom base styles */
+
+/* Start purging... */
+@tailwind components;
+/* Stop purging. */
+
+/* Your own custom component styles */
+
+/* Start purging... */
+@tailwind utilities;
+/* Stop purging. */
+
+/* Your own custom utilities */
+
+.react-datepicker {
+  @apply mx-auto;
+}
+
+.input-con input[type='text'],
+.input-con input[type='email'] {
+  @apply leading-5;
+}
+.visitor-detail, .contact-detail {
+  @apply border border-gray-400 border-solid mt-2 rounded-md;
+}
+.visitor-detail .header, .contact-detail .header {
+  cursor: pointer;
+  @apply flex flex-row p-2 justify-between;
+}
+.visitor-detail .vd-row,
+.contact-detail .vd-row {
+  @apply flex flex-col pb-2;
+}
+
+.finalize-btn {
+  @apply flex flex-col;
+}

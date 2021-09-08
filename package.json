@@ -1,0 +1,74 @@
+{
+  "name": "rezdy-ksa",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "@brainhubeu/react-carousel": "^2.0.4",
+    "@headlessui/react": "^1.4.1",
+    "@material-ui/core": "^4.12.3",
+    "@material-ui/icons": "^4.11.2",
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^11.2.7",
+    "@testing-library/user-event": "^13.2.1",
+    "@types/jest": "^26.0.24",
+    "@types/node": "^15.14.5",
+    "@types/react": "^17.0.15",
+    "@types/react-datepicker": "^3.1.8",
+    "@types/react-dom": "^17.0.9",
+    "autoprefixer": "^10.3.1",
+    "axios": "^0.21.1",
+    "bootstrap": "^5.0.2",
+    "class-transformer": "^0.4.0",
+    "cross-env": "^7.0.3",
+    "google-maps-react": "^2.0.6",
+    "mobx": "^6.3.2",
+    "mobx-react": "^7.2.0",
+    "moment": "^2.29.1",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.3.6",
+    "postcss-cli": "^8.3.1",
+    "postcss-preset-env": "^6.7.0",
+    "react": "^17.0.2",
+    "react-bootstrap": "^1.6.1",
+    "react-bootstrap-input-spinner": "^1.0.2",
+    "react-datepicker": "^4.1.1",
+    "react-dom": "^17.0.2",
+    "react-dropdown": "^1.9.2",
+    "react-icons": "^4.2.0",
+    "react-scripts": "4.0.3",
+    "reflect-metadata": "^0.1.13",
+    "tailwindcss": "^2.2.7",
+    "typescript": "^4.3.5"
+  },
+  "scripts": {
+    "start": "set PORT=4001 && run-p watch:css react-scripts:start",
+    "build": "run-s build:css react-scripts:build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "build:css": "cross-env TAILWIND_MODE=build NODE_ENV=production postcss src/Assets/Styles/tailwind.css -o src/Assets/Styles/index.css",
+    "watch:css": "cross-env TAILWIND_MODE=watch NODE_ENV=development postcss src/Assets/Styles/tailwind.css -o src/Assets/Styles/index.css --watch",
+    "react-scripts:start": "react-scripts start",
+    "react-scripts:build": "react-scripts build"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@babel/preset-react": "^7.14.5",
+    "@types/react-select": "^4.0.17",
+    "react-lang-dropdown": "^1.0.4",
+    "react-select": "^4.3.1"
+  }
+}

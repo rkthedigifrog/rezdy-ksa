@@ -10,6 +10,7 @@ import { ChevronRight } from '@material-ui/icons'
 import calenderImage from '../Assets/Images/bg.jpg'
 import Select from "./Select/SelectBox";
 import CalendarDays from "./DateSlider";
+import WheelChairDropdown from './WheelChairDropdown';
 
 
 
@@ -126,7 +127,8 @@ export function Datepicker() {
                 <div className="container">
                   <div className="flex flex-row justify-center items-center sm:mt-0 md:mt-20 lg:mt-48" >
                   <CalendarDays monthYear={currentMonthYear}/>
-                  </div>
+                </div>
+                <WheelChairDropdown/>
                   <div className="text-center pt-4 md:pt-20 mb-12">
                     <button className="booknow">Book Now</button>
                   </div>

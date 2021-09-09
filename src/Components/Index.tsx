@@ -5,6 +5,7 @@ import { Session } from "../System/Models/Session";
 import { locator } from "../System/ServiceLocator";
 import { ApiService } from "../System/Services/ApiService";
 import { Store } from "../System/Stores";
+import { action } from "mobx";
 import { Datepicker } from "./Datepicker";
 
 
@@ -17,7 +18,7 @@ export class Index extends Component<IProps, IState> {
   constructor(props: IProps) {
     super(props);
 
-    this.onBookableRequest = this.onBookableRequest.bind(this);
+   // this.onBookableRequest = this.onBookableRequest.bind(this);
   }
 
   async componentDidMount() {
@@ -66,25 +67,23 @@ Saudi Arabia’s rich heritage, diverse people, vast opportunities and natural w
         
       </div>
         <Datepicker></Datepicker>
-        
-
-       
-           
-                 
-         
-    
-            
-          
-         
-        
-          {/* <Datepicker onBookableRequest={this.onBookableRequest} /> */}
-       
+        <div className="text-center pt-12">
+            <button className="booknow" onClick={this.onBookNow}>Book Now</button>
+        </div>
+        <h5 className="py-6 text-center" >*Please note: After your booking is confirmed we will send you a confirmation email.</h5>
 
       </div>
     );
   }
 
-  onBookableRequest() {
-    Store.setBookingState(BookingState.Extra);
-  }
+
+
+
+
+onBookNow() {
+    if (Store.getSelectedDate() != null) {
+      Store.setBookingState(BookingState.Extra);
+    }
+}
+
 }

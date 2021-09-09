@@ -2,24 +2,37 @@ import React, { useEffect, useState } from "react";
 import Carousel, { slidesToShowPlugin } from '@brainhubeu/react-carousel';
 import '@brainhubeu/react-carousel/lib/style.css';
 import moment from 'moment';
+import { Store } from '../System/Stores';
 
 
 
-export function CalendarDays() {
-  let [month] = useState(moment().format('MMMM YYYY'));
+export function CalendarDays(props: any) {
+  
+  let [month,setMonth] = useState(moment(props.monthYear).format('MMMM YYYY'));
   let [day, setDay] = useState([moment().format('DD')]);
     
     useEffect(() => {
 
-        setDay(Array.from(Array(moment(month, 'MMMM YYYY').daysInMonth()), (_, i) => i + 1));
+        setDay(Array.from(Array(moment(month, 'MMMM YYYY').daysInMonth()), (_, i) => (i + 1).toString()));
 
     }, [month]);
+  
+  useEffect(() => {
+    console.log("month year use effiect:", (props.monthYear.value).toString())
+    console.log("moment date setmonth:",moment((props.monthYear.value).toString(),'MMMM YYYY').format('MMMM YYYY'))
+    
+    setMonth(moment((props.monthYear.value).toString(),'MMMM YYYY').format('MMMM YYYY'))
+    console.log(month)
+    
+    
+  },[props.monthYear]);
+  
     const onDateSelected = (e) =>{
     if (e.target.getAttribute('mydate') != '') {
       let selectedDate = e.target.getAttribute('mydate');
       Store.setSelectedDate(selectedDate);
     }else{
-      Store.setSelectedDate(moment().format('D-MM-YYYY'));
+      Store.setSelectedDate(moment().toDate());
     }
   }
     return (

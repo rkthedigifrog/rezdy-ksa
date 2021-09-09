@@ -17,10 +17,10 @@ import CalendarDays from "./DateSlider";
 export function Datepicker() {
    
     const YEARS = () => {
-        //return extensions;
+        
         const years = []
         const dateStart = moment()
-        const dateEnd = moment().add(2, 'y')
+        const dateEnd = moment().add(1, 'y')
         while (dateEnd.diff(dateStart, 'years') >= 0) {
             years.push({id:dateStart.format('MMYYYY'), label: (dateStart.format('MMMM')+' ('+dateStart.format('YYYY')+')'),value: dateStart.format('MMMM YYYY')})
             dateStart.add(1, 'month')
@@ -28,10 +28,12 @@ export function Datepicker() {
 
         return years
     }
-    const allMonthYear = YEARS();
+    const allMonthYear = YEARS(); // year month options dropdown
     const temp = allMonthYear.map((month) => month.value);
-    //const currentMonthYear = "Select Month and Year"
+    
     const [currentMonthYear, setCurrentMonthYear] = useState(allMonthYear[0]);
+    
+  //vistor count 1-30
     const getSelectOptions =() => {
     let options: JSX.Element[] = [];
 
@@ -66,11 +68,6 @@ export function Datepicker() {
         ? Store.product.images[0].largeSizeUrl
         : calenderImage;
 
-    /*useEffect(() => {
-
-        setDay(Array.from(Array(moment(currentMonth, 'MMMM YYYY').daysInMonth()), (_, i) => i + 1));
-
-    }, [currentMonth]);*/
 
     return (
         <div>
@@ -81,13 +78,13 @@ export function Datepicker() {
               {<div className="w-full md:w-4/12 lg:w-3/12 md:px-4 text-center">
                 <div className="select-border black-border text-lg">
                 <Select
-                  //className="flex-1"
                   id="months"
                   options={allMonthYear}
                   selectedOption={currentMonthYear}
-                  handelChange={(event) => {
+                  handelChange={(event:React.ChangeEvent<HTMLInputElement>) => {
                     console.log("parent", event);
                     setCurrentMonthYear(event);
+
                   }}
                 />
                   </div>
@@ -128,7 +125,7 @@ export function Datepicker() {
               <div className="absolute inset-0  z-100 set-z-index">
                 <div className="container">
                   <div className="flex flex-row justify-center items-center sm:mt-0 md:mt-20 lg:mt-48" >
-                      <CalendarDays/>            
+                  <CalendarDays monthYear={currentMonthYear}/>
                   </div>
                   <div className="text-center pt-4 md:pt-20 mb-12">
                     <button className="booknow">Book Now</button>

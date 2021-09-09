@@ -67,10 +67,7 @@ Saudi Arabia’s rich heritage, diverse people, vast opportunities and natural w
         
       </div>
         <Datepicker></Datepicker>
-        <div className="text-center pt-12">
-            <button className="booknow" onClick={this.onBookNow}>Book Now</button>
-        </div>
-        <h5 className="py-6 text-center" >*Please note: After your booking is confirmed we will send you a confirmation email.</h5>
+       
 
       </div>
     );

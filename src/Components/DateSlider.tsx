@@ -70,8 +70,21 @@ export function CalendarDays(props: any) {
       }}
     >
   {day.map((val, k) => {
-          return(<div key={k} class="slider_content m-4 md:m-2 h-48 hover:bg-white hover:border-purple-800 hover:border-b-8 border-b-4 border-transparent sm:w-full w-full ">
-          <div class="border-2 border-bg-white hover:border-transparent w-full h-full p-2" for={val} mydate={val+`-${moment(month).format('MM')}-${moment().format('YYYY')}`} onClick={(e) => console.log(e)}><h5 class="text-white text-xl">{moment(month, 'MMMM YYYY').format('MMM')}</h5><h3 class="text-4xl text-white">{val}</h3>
+          return(<div key={k} className="slider_content m-4 md:m-2 h-48 hover:bg-white hover:border-purple-800 hover:border-b-8 border-b-4 border-transparent sm:w-full w-full ">
+            <div className="border-2 border-bg-white hover:border-transparent w-full h-full p-2" for={val} mydate={val + `-${moment(month).format('MM')}-${moment().format('YYYY')}`} onClick={(e) => {
+              console.log(moment((props.monthYear.value).toString(), 'MMMM YYYY').format('MMMM YYYY'))
+              console.log(val)
+              let month = moment((props.monthYear.value+' '+val.padStart(1,'0')).toString(), 'MMMM YYYY DD').format('MMMM YYYY DD');
+
+             // console.log(month.toString() + ' ' + val.toString().padStart(1, '0'))
+
+              
+              console.log(month)
+              let selectedDate = moment((props.monthYear.value + ' ' + val.padStart(1, '0')).toString(), 'MMMM YYYY DD').toDate();
+             Store.setSelectedDate(selectedDate);
+
+            
+            }}><h5 className="text-white text-xl">{moment(month, 'MMMM YYYY').format('MMM')}</h5><h3 class="text-4xl text-white">{val}</h3>
           
 
           </div>

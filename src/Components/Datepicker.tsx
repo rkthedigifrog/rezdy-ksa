@@ -11,6 +11,8 @@ import calenderImage from '../Assets/Images/bg.jpg'
 import Select from "./Select/SelectBox";
 import CalendarDays from "./DateSlider";
 import WheelChairDropdown from './WheelChairDropdown';
+import { BookingState } from "../Enums/BookingState";
+import TimeDropDown from './TimeDropDown';
 
 
 
@@ -31,7 +33,6 @@ export function Datepicker() {
     }
     const allMonthYear = YEARS(); // year month options dropdown
     const temp = allMonthYear.map((month) => month.value);
-    
     const [currentMonthYear, setCurrentMonthYear] = useState(allMonthYear[0]);
     
   //vistor count 1-30
@@ -54,12 +55,10 @@ export function Datepicker() {
 
   }
 
-    //let [month, setMonth] = useState(moment().format('MMMM YYYY'));
+   
+
     let [day, setDay] = useState([moment().format('DD')]);
-    
-    /*const temp = monthArray.map(month => month);*/
     const currentMonth = useState(moment().format('MMMM YYYY'));
-    /*const [currentMonthYear, setMonthYear] = useState(temp);*/
     let [selected, setSelected] = useState(false);
     let selectclass = selected ? "cards-sel" : "cards";
     const ref = React.createRef();
@@ -89,7 +88,8 @@ export function Datepicker() {
                   }}
                 />
                   </div>
-              </div>}
+                </div>}
+                <TimeDropDown />
               <div className="w-full md:w-4/12 lg:w-3/12 md:px-4 text-center">
                 <div className="language-selector black-border text-lg">
                   <LangSelector></LangSelector>
@@ -107,15 +107,7 @@ export function Datepicker() {
                     setCurrentVisitor(event);
                   }}
                 />
-                  {/*<label className="font-bold">
-                  Enter number of visitors:<span className="text-red-600">*</span>
-                </label>
-                <select
-                  className="border-gray-600 border-solid border h-6 ml-2 w-12"
-                  onChange={(data) => {}}
-                >
-                  {getSelectOptions()}
-                        </select>*/}
+             
                   </div>
                 </div>
               </div>
@@ -126,11 +118,12 @@ export function Datepicker() {
               <div className="absolute inset-0  z-100 set-z-index">
                 <div className="container">
                   <div className="flex flex-row justify-center items-center sm:mt-0 md:mt-20 lg:mt-48" >
-                  <CalendarDays monthYear={currentMonthYear}/>
+                  <CalendarDays monthYear={currentMonthYear}/> //slider 
                 </div>
-                <WheelChairDropdown/>
+                <WheelChairDropdown/> //wheelchair selector
                   <div className="text-center pt-4 md:pt-20 mb-12">
-                    <button className="booknow">Book Now</button>
+                  <button className="booknow" onClick={() => {
+    Store.setBookingState(BookingState.VisitorDetails)} }>Book Now</button>
                   </div>
                 </div>
                 </div>

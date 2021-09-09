@@ -69,67 +69,61 @@ export function Datepicker() {
         ? Store.product.images[0].largeSizeUrl
         : calenderImage;
 
+    
+    const onTimeSelected = (date: Date | [Date, Date] | null) => {
+        if (date instanceof Date) {
+          console.log('Time: ', date);
+          Store.setSelectedDate(date);
+        }
+    }
+    const onVisitorCountSelected = (e) => {
+        let visitors = Number.parseInt(e.target.value);
 
         Store.setVisitorsCount(visitors);
     }
     return (
         <div>
-        <div className="" middle-content>
-          <div className="show-input">
-          <div className="container  px-12">
-            <div className="flex flex-wrap mt-6 mb-12 px-12 justify-center">
-              {<div className="w-full md:w-4/12 lg:w-3/12 md:px-4 text-center">
-                <div className="select-border black-border text-lg">
-                <Select
-                  id="months"
-                  options={allMonthYear}
-                  selectedOption={currentMonthYear}
-                  handelChange={(event:React.ChangeEvent<HTMLInputElement>) => {
-                    console.log("parent", event);
-                    setCurrentMonthYear(event);
+            <div className="" middle-content>
+                <div className="show-input">
+                    <div className="container  px-12">
+                        <div className="flex flex-wrap mt-6 mb-12 px-12 justify-center">
+                            {<div className="w-full sm:w-3/12 px-4 text-center text-lg">
+                                <div className="select-border black-border">
+                                    <Select
+                                      //className="flex-1"
+                                      id="months"
+                                      options={allMonthYear}
+                                      selectedOption={currentMonthYear}
+                                      handelChange={(event) => {
+                                        console.log("parent", event);
+                                        setCurrentMonthYear(event);
+                                      }}
+                                    />
+                                </div>
+                            </div>}
+                            <div className="w-full sm:w-3/12 px-4 text-center">
+                                <div className="language-selector black-border text-lg">
+                                    <LangSelector></LangSelector>
+                                </div>
+                            </div>
+                            <div className="w-full sm:w-3/12 px-4 text-center">
+                                <div className="select-border black-border text-lg">
+                                    <Select
+                                      //className="flex-1"
+                                      id="visitor"
+                                      options={allVisitors}
+                                      selectedOption={currentVisitor}
+                                      handelChange={(event) => {
+                                        this.onVisitorCountSelected(event)
+                                        console.log("parent", event);
+                                        setCurrentVisitor(event);
+                                      }}
+                                    />
 
-                  }}
-                />
-                  </div>
-                </div>}
-                <TimeDropDown />
-              <div className="w-full md:w-4/12 lg:w-3/12 md:px-4 text-center">
-                <div className="language-selector black-border text-lg">
-                  <LangSelector></LangSelector>
-                  </div>
-              </div>
-              <div className="w-full md:w-4/12 lg:w-3/12 md:px-4 text-center">
-                <div className="select-border black-border text-lg">
-                <Select
-                  //className="flex-1"
-                  id="visitor"
-                  options={allVisitors}
-                  selectedOption={currentVisitor}
-                  handelChange={(event) => {
-                    console.log("parent", event);
-                    setCurrentVisitor(event);
-                    Store.setVisitorsCount(event.value);
-
-                  }}
-                />
-             
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-            <div className="relative calender-sep">
-              <img className="w-screen  z-0" src={imageUrl} alt="KSA Pavilion" height="800" />
-              <div className="absolute inset-0  z-100 set-z-index">
-                <div className="container">
-                  <div className="flex flex-row justify-center items-center sm:mt-0 md:mt-20 lg:mt-48" >
-                  <CalendarDays monthYear={currentMonthYear}/> //slider 
-                </div>
-                <WheelChairDropdown/> //wheelchair selector
-                  <div className="text-center pt-4 md:pt-20 mb-12">
-                  <button className="booknow" onClick={() => {
-    Store.setBookingState(BookingState.VisitorDetails)} }>Book Now</button>
-                  </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div className="relative calender-sep">
                     <img className="w-screen z-0" src={imageUrl} alt="KSA Pavilion" />

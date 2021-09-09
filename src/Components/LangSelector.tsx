@@ -15,7 +15,7 @@ interface SelectButtonProps {
   stateId: string;
 }
 
-const users: LanguageOption[] = [
+const users: any = [
   {
     name: "English",
     label: "English",
@@ -132,6 +132,8 @@ export default function LangSelector() {
         handelChange={(event) => {
           console.log("parent", event);
           setCurrentUser(event);
+        console.log("you have selected user " + event.name);
+        Store.setLanguage(event.name);
         }}
       />
     /*<SelectUserButton

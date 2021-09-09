@@ -113,7 +113,8 @@ button{
     background-color: rgb(0 0 0 / 52%);
 }
 .slider_content:hover h5, .slider_content:hover h3{color: #000 !important;}
-
+.slider_content_sel h3{color: #000 !important;}
+.slider_content_sel h5{color: #000 !important;}
 @media(min-width:800px){
 .calender-sep img{height: 800px !important}
 }

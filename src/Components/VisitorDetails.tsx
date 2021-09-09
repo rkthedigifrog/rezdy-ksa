@@ -7,11 +7,7 @@ import { BookingResource } from "../System/Models/BookingResource";
 import { Customer } from "../System/Models/Customer";
 import { Item } from "../System/Models/Item";
 
-import {
-  Participant,
-  Field,
-  extra,
-} from "../System/Models/Participant";
+import { Participant, Field, extra } from "../System/Models/Participant";
 import { Quantity } from "../System/Models/Quantity";
 import { locator } from "../System/ServiceLocator";
 import { ApiService } from "../System/Services/ApiService";
@@ -72,25 +68,32 @@ export class VisitorDetails extends PureComponent<IProps, IState> {
   render() {
     let selectedDateText = format(Store.selectedDate!, "MMMM do, yyyy H:mma");
     return (
-      <div className="pt-10 visitor-details">
-        <div className="flex flex-col">
-          <h1>Booking Details</h1>
-          <h2>KSA Pavilion Tour Guide Booking</h2>
-          <span>Date: {selectedDateText}</span>
-        </div>
-        {this.visitorElements}
-        <div className="flex flex-row justify-center mt-3">
-          <button className="button return-btn" onClick={this.onReturn}>
-            <span>Return</span>
-          </button>
-          <button
-            className="button finalize-btn"
-            disabled={this.state.isValidated ? false : true}
-            onClick={this.onClick}
-          >
-            <span>Book Now</span>
-            <span>Please enter all the required fields</span>
-          </button>
+      <div className="pt-10 visitor-details bg-black h-screen ">
+        <div className="container lg:max-w-5xl mx-auto">
+          <div className="flex flex-col ">
+            <h1>Booking Details</h1>
+            <h2>KSA Pavilion Tour Guide Booking</h2>
+            <span>Date: {selectedDateText}</span>
+          </div>
+          {this.visitorElements}
+          <div className="flex flex-row justify-center mt-3 w-full md:w-5/12">
+            <button
+              className="button return-btn  px-4  py-1 mr-4  text-lg"
+              onClick={this.onReturn}
+            >
+              <span>Return</span>
+            </button>
+            <button
+              className="button finalize-btn  text-center px-4 py-1 "
+              disabled={this.state.isValidated ? false : true}
+              onClick={this.onClick}
+            >
+              <span className="text-center w-full text-lg">Book Now</span>
+              <span className="text-center w-full text-sm">
+                Please enter all the required fields
+              </span>
+            </button>
+          </div>
         </div>
       </div>
     );
@@ -125,10 +128,8 @@ export class VisitorDetails extends PureComponent<IProps, IState> {
       item.amount = 0;
       item.productCode = Store.product!.code;
       let cust_extras = new extra();
-      cust_extras.quantity=Store.Extras;
+      cust_extras.quantity = Store.Extras;
       item.extras.push(cust_extras);
-      
-
 
       let selectedDate = Store.getSelectedDate()!;
       let session = Store.availableSessions?.find(

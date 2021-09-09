@@ -1,9 +1,8 @@
-import React from 'react'
+import React from "react";
 import { Listbox, Transition } from "@headlessui/react";
 import Select from "./Select/SelectBox";
-import { useState } from 'react';
-
-
+import { useState } from "react";
+import { Store } from "../System/Stores";
 
 const users: any = [
   {
@@ -55,24 +54,24 @@ const users: any = [
     name: "10",
     label: "10",
     id: 10,
-  }
+  },
 ];
 
 function WheelChairDropdown() {
+  const [currentUser, setCurrentUser] = useState(users[0]);
 
-    const [currentUser, setCurrentUser] = useState(users[0]);
-    
-    return (
-         <Select
-        //className="flex-1"
-        options={users}
-        selectedOption={currentUser}
-        handelChange={(event) => {
-          console.log("parent", event);
-          setCurrentUser(event);
-        }}
-      />
-    )
+  return (
+    <Select
+      //className="flex-1"
+      options={users}
+      selectedOption={currentUser}
+      handelChange={(event) => {
+        console.log("parent", event);
+        setCurrentUser(event);
+        Store.setExtras(parseInt(event.label));
+      }}
+    />
+  );
 }
 
-export default WheelChairDropdown
+export default WheelChairDropdown;

@@ -39,7 +39,7 @@ const Select = ({
   /* label, */
   options,
   selectedOption,
-  handelChange
+  handelChange,
 }) => {
   return (
     <Listbox
@@ -58,6 +58,7 @@ const Select = ({
               {label}
             </Listbox.Label>
           )*/}
+
           <div className="relative mt-1">
             <span className="inline-block w-full rounded-md shadow-sm">
               <Listbox.Button className="cursor-default relative w-full rounded-md border border-gray-300 bg-white pl-3 pr-10 py-2 text-left  transition ease-in-out duration-150">

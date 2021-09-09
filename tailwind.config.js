@@ -4,6 +4,12 @@ module.exports = {
   // mode: "jit",
   theme: {
     extend: {},
+    fontFamily: {
+
+      'display': ['Almarai'],
+
+      'body': ['Almarai'],
+    }
   },
   variants: {},
   plugins: [],

@@ -15,6 +15,7 @@
     "@types/react": "^17.0.15",
     "@types/react-datepicker": "^3.1.8",
     "@types/react-dom": "^17.0.9",
+    "antd": "^4.16.13",
     "autoprefixer": "^10.3.1",
     "axios": "^0.21.1",
     "bootstrap": "^5.0.2",

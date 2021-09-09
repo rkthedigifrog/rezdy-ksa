@@ -49,9 +49,9 @@ export class VisitorDetail extends Component<IProps, IState> {
     let animClass = this.state.isExpanded ? " rotated" : "";
 
     return (
-      <div className="visitor-detail w-full md:w-5/12 text-white">
+      <div className="w-full md:w-5/12 text-white pt-10">
         <div className="header legend" onClick={this.onToggle}>
-          <h4 className="h-5 leading-5">
+          <h4 className="form-title font-body h-5 leading-5">
             Visitor {this.props.visitorIndex + 1}
           </h4>
           <MdExpandMore
@@ -60,16 +60,16 @@ export class VisitorDetail extends Component<IProps, IState> {
           />
         </div>
         {this.state.isExpanded && (
-          <div className="expanding-con border-t p-2">
+          <div className="expanding-con p-2">
             <div className="vd-row">
-              <label className="font-bold text-xs">First Name:</label>
-              <div className="input-con flex flex-row justify-start items-center bg-white">
+              <label className="font-bold text-xs form-text">First Name:</label>
+              <div className="input-con flex flex-row justify-start items-center form-input">
                 <span className="px-2">
                   <FaAsterisk size="6" />
                 </span>
                 <div className="vr"></div>
                 <input
-                  className="h-6 leading-6 w-full border-l-2 border-gray-200 focus:ring-2 focus:ring-red-600 "
+                  className="h-6 leading-6 w-full  border-gray-200 focus:ring-2 focus:ring-red-600 form-input"
                   type="text"
                   minLength={1}
                   required
@@ -80,14 +80,14 @@ export class VisitorDetail extends Component<IProps, IState> {
               </div>
             </div>
             <div className="vd-row">
-              <label className="font-bold text-xs">Last Name:</label>
-              <div className="input-con flex flex-row justify-start items-center bg-white">
+              <label className="font-bold text-xs form-text">Last Name:</label>
+              <div className="input-con flex flex-row justify-start items-center form-input">
                 <span className="px-2">
                   <FaAsterisk size="6" />
                 </span>
                 <div className="vr"></div>
                 <input
-                  className="h-6 leading-6 w-full border-l-2 border-gray-200 focus:ring-2 focus:ring-red-600 "
+                  className="h-6 leading-6 w-full  focus:ring-2 focus:ring-red-600 form-input"
                   type="text"
                   maxLength={500}
                   value={this.state.lastName}
@@ -96,16 +96,16 @@ export class VisitorDetail extends Component<IProps, IState> {
               </div>
             </div>
             <div className="vd-row">
-              <label className="font-bold text-xs">Email:</label>
+              <label className="font-bold text-xs form-text">Email:</label>
               {this.props.visitorIndex === 0 ? (
-                <div className="input-con flex flex-row justify-start items-center bg-white">
+                <div className="input-con flex flex-row justify-start items-center form-input">
                   <span className="px-2">
                     <FaAsterisk size="6" />
                   </span>
                   <div className="vr"></div>
 
                   <input
-                    className="h-6 leading-6 w-full border-l-2 border-gray-200 focus:ring-2 focus:ring-red-600 "
+                    className="h-6 leading-6 w-full focus:ring-2 focus:ring-red-600 form-input"
                     type="email"
                     maxLength={500}
                     value={this.state.email}
@@ -113,9 +113,9 @@ export class VisitorDetail extends Component<IProps, IState> {
                   />
                 </div>
               ) : (
-                <div className="input-con flex flex-row justify-start items-center bg-white">
+                <div className="input-con flex flex-row justify-start items-center form-input">
                   <input
-                    className="h-6 leading-6 w-full border-l-2 border-gray-200 focus:ring-2 focus:ring-red-600 "
+                    className="h-6 leading-6 w-full  focus:ring-2 focus:ring-red-600 form-input"
                     type="email"
                     value={this.state.email}
                     maxLength={500}
@@ -125,11 +125,11 @@ export class VisitorDetail extends Component<IProps, IState> {
               )}
             </div>
             <div className="vd-row">
-              <label className="font-bold text-xs">Mobile:</label>
-              <div className="input-con flex flex-row justify-start items-center bg-white">
+              <label className="font-bold text-xs form-text">Mobile:</label>
+              <div className="input-con flex flex-row justify-start items-center form-input">
                 <input
                   datatype=""
-                  className="h-6 leading-6 w-full"
+                  className="h-6 leading-6 w-full form-input"
                   type="text"
                   value={this.state.mobile}
                   maxLength={500}

@@ -18,14 +18,16 @@
   @apply mx-auto;
 }
 
-.input-con input[type='text'],
-.input-con input[type='email'] {
+.input-con input[type="text"],
+.input-con input[type="email"] {
   @apply leading-5;
 }
-.visitor-detail, .contact-detail {
-  @apply border border-gray-400 border-solid mt-2 rounded-md;
+.visitor-detail,
+.contact-detail {
+  @apply mt-2 rounded-md;
 }
-.visitor-detail .header, .contact-detail .header {
+.visitor-detail .header,
+.contact-detail .header {
   cursor: pointer;
   @apply flex flex-row p-2 justify-between;
 }

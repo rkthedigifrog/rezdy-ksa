@@ -113,8 +113,7 @@ button{
     background-color: rgb(0 0 0 / 52%);
 }
 .slider_content:hover h5, .slider_content:hover h3{color: #000 !important;}
-.slider_content_sel h3{color: #000 !important;}
-.slider_content_sel h5{color: #000 !important;}
+
 @media(min-width:800px){
 .calender-sep img{height: 800px !important}
 }
@@ -126,3 +125,10 @@ button{
     border-radius: 0.375rem;
 }
 .time_piker .react-datepicker-wrapper{width: 100%;}
+.expanding-con .vd-row span svg{color: #ff1d1d;}
+.visitor-details , .visitor-details h4,  .visitor-details label{color: rgb(123 196 184);}
+.visitor-details .finalize-btn{background-color: rgb(12 36 32);color: rgb(123 196 184);}
+.visitor-details .return-btn{
+  background-color: rgb(140 57 57 / 58%);
+    color: #ef4444;
+}

@@ -105,6 +105,8 @@ export function Datepicker() {
                   handelChange={(event) => {
                     console.log("parent", event);
                     setCurrentVisitor(event);
+                    Store.setVisitorsCount(event.value);
+
                   }}
                 />
              

@@ -46,6 +46,7 @@ class LogicStore {
   }
 
   setVisitorsCount(value: number) {
+    console.log("vistor count",value)
     this.visitorCount = value;
   }
 
@@ -55,7 +56,7 @@ class LogicStore {
   }
 
   setLanguage(language: string) {
-    console.log("Booking Target Date:", language);
+    console.log("Booking Target language:", language);
     this.selectedLanguage = language;
   }
 

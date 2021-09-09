@@ -40,7 +40,8 @@ export function CalendarDays(props: any) {
     return (
       <Carousel
       plugins={[
-        'arrows',
+          'arrows',
+        'fastSwipe',
         {
           resolve: slidesToShowPlugin,
           options: {

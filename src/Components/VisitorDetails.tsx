@@ -72,15 +72,19 @@ export class VisitorDetails extends PureComponent<IProps, IState> {
   render() {
     let selectedDateText = format(Store.selectedDate!, "MMMM do, yyyy H:mma");
     return (
-      <div className="pt-10 visitor-details bg-black h-screen ">
-        <div className="container lg:max-w-5xl mx-auto">
-        <div className="flex flex-col ">
-          <h1>Booking Details</h1>
-          <h2>KSA Pavilion Tour Guide Booking</h2>
-          <span>Date: {selectedDateText}</span>
+      <div className="pt-10 visitor-details  h-full pb-4 ">
+        <div className=" mx-auto">
+        <div className="flex flex-col text-center mb-8">
+          <h1 className="text-3xl font-bold text-black">Plan your visit to the Kingdom</h1>
+          <h1 className="text-3xl mb-4 font-bold text-black">of Saudi Arabia Pavilion at Expo 2020 Dubai</h1>
+          <p  className=" text-black">Plan your visit and book a 20-minute tour of the Pavilion with one of our knowledgeable guides to learn about </p>
+          <p  className=" text-black">
+Saudi Arabia’s rich heritage, diverse people, vast opportunities and natural wonders</p>
         </div>
         {this.visitorElements}
-        <div className="flex flex-row justify-center mt-3 w-full md:w-5/12">
+
+        <div className="flex flex-row justify-center mt-3 w-full d-none ">
+         
           <button className="button return-btn  px-4  py-1 mr-4  text-lg" onClick={this.onReturn}>
             <span>Return</span>
           </button>

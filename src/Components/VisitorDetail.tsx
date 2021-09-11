@@ -49,97 +49,97 @@ export class VisitorDetail extends Component<IProps, IState> {
     let animClass = this.state.isExpanded ? " rotated" : "";
 
     return (
-      <div className="w-full md:w-5/12 text-white pt-10">
-        <div className="header legend" onClick={this.onToggle}>
-          <h4 className="form-title font-body h-5 leading-5">
-            Visitor {this.props.visitorIndex + 1}
-          </h4>
-          <MdExpandMore
-            className={"h-5 leading-5 rotable" + animClass}
-            size="20"
-          />
-        </div>
-        {this.state.isExpanded && (
-          <div className="expanding-con p-2">
-            <div className="vd-row">
-              <label className="font-bold text-xs form-text">First Name:</label>
-              <div className="input-con flex flex-row justify-start items-center form-input">
-                <span className="px-2">
-                  <FaAsterisk size="6" />
-                </span>
-                <div className="vr"></div>
-                <input
-                  className="h-6 leading-6 w-full  border-gray-200 focus:ring-2 focus:ring-red-600 form-input"
-                  type="text"
-                  minLength={1}
-                  required
-                  maxLength={500}
-                  value={this.state.name}
-                  onChange={(event) => this.onNameChanged(event)}
-                />
-              </div>
+          <div className="relative visitor-sep">
+      <img className="w-screen z-0" src="https://img.rezdy.com/PRODUCT_IMAGE/194530/1788390_lg.jpg" alt="KSA Pavilion" />
+      <div className="absolute inset-0  z-100 set-z-index">
+        <div className="container sm:pt-10 md:pt-16 max-w-6xl mx-auto">
+          <div className="visitor-detail w-full  text-white border-0">
+            <div className="header legend" onClick={this.onToggle}>
+              <h4 className="h-5 leading-5 text-3xl text-center mb-8 text-white font-bold w-11/12 my-3">
+                Visitor {this.props.visitorIndex + 1}
+              </h4>
+              <MdExpandMore
+                className={"h-5 leading-5 rotable" + animClass}
+                size="20"
+              />
             </div>
-            <div className="vd-row">
-              <label className="font-bold text-xs form-text">Last Name:</label>
-              <div className="input-con flex flex-row justify-start items-center form-input">
-                <span className="px-2">
-                  <FaAsterisk size="6" />
-                </span>
-                <div className="vr"></div>
-                <input
-                  className="h-6 leading-6 w-full  focus:ring-2 focus:ring-red-600 form-input"
-                  type="text"
-                  maxLength={500}
-                  value={this.state.lastName}
-                  onChange={this.onLastNameChanged}
-                />
-              </div>
-            </div>
-            <div className="vd-row">
-              <label className="font-bold text-xs form-text">Email:</label>
-              {this.props.visitorIndex === 0 ? (
-                <div className="input-con flex flex-row justify-start items-center form-input">
-                  <span className="px-2">
-                    <FaAsterisk size="6" />
-                  </span>
-                  <div className="vr"></div>
+            {this.state.isExpanded && (
+              <div className="expanding-con  p-2">
+                <div className="vd-row my-4">
+                  <label className="font-bold text-base text-white">First Name:</label>
+                  <div className="input-con flex flex-row justify-start items-center  h-10">
+                    
+                    <input
+                      className="h-6 leading-6 w-full border-2 border-white bg-transparent focus:ring-2 focus:ring-red-600  h-full text-black"
+                      type="text"
+                      minLength={1}
+                      required
+                      maxLength={500}
+                      value={this.state.name}
+                      onChange={(event) => this.onNameChanged(event)}
+                    />
+                  </div>
+                </div>
+                <div className="vd-row my-4">
+                  <label className="font-bold text-base text-white">Last Name:</label>
+                  <div className="input-con flex flex-row justify-start items-center  h-10">
+                    
+                    <input
+                      className="h-6 leading-6 w-full border-2 border-white bg-transparent focus:ring-2 focus:ring-red-600 h-full text-black "
+                      type="text"
+                      maxLength={500}
+                      value={this.state.lastName}
+                      onChange={this.onLastNameChanged}
+                    />
+                  </div>
+                </div>
+                <div className="vd-row my-4">
+                  <label className="font-bold text-base text-white">Email:</label>
+                  {this.props.visitorIndex === 0 ? (
+                    <div className="input-con flex flex-row justify-start items-center  h-10">
+                    
 
-                  <input
-                    className="h-6 leading-6 w-full focus:ring-2 focus:ring-red-600 form-input"
-                    type="email"
-                    maxLength={500}
-                    value={this.state.email}
-                    onChange={this.onEmailChanged}
-                  />
+                      <input
+                        className="h-6 leading-6 w-full border-2 border-white bg-transparent focus:ring-2 focus:ring-red-600  h-full text-black"
+                        type="email"
+                        maxLength={500}
+                        value={this.state.email}
+                        onChange={this.onEmailChanged}
+                      />
+                    </div>
+                  ) : (
+                    <div className="input-con flex flex-row justify-start items-center  h-10">
+                      <input
+                        className="h-6 leading-6 w-full border-2 border-white bg-transparent focus:ring-2 focus:ring-red-600  h-full text-black"
+                        type="email"
+                        value={this.state.email}
+                        maxLength={500}
+                        onChange={this.onEmailChanged}
+                      />
+                    </div>
+                  )}
                 </div>
-              ) : (
-                <div className="input-con flex flex-row justify-start items-center form-input">
-                  <input
-                    className="h-6 leading-6 w-full  focus:ring-2 focus:ring-red-600 form-input"
-                    type="email"
-                    value={this.state.email}
-                    maxLength={500}
-                    onChange={this.onEmailChanged}
-                  />
+                <div className="vd-row my-4">
+                  <label className="font-bold text-base text-white">Mobile:</label>
+                  <div className="input-con flex flex-row justify-start items-center  h-10">
+                    <input
+                      datatype=""
+                      className="h-6 leading-6 w-full h-full text-black border-2 border-white bg-transparent"
+                      type="text"
+                      value={this.state.mobile}
+                      maxLength={500}
+                      onChange={this.onMobileChanged}
+                    />
+                  </div>
                 </div>
-              )}
-            </div>
-            <div className="vd-row">
-              <label className="font-bold text-xs form-text">Mobile:</label>
-              <div className="input-con flex flex-row justify-start items-center form-input">
-                <input
-                  datatype=""
-                  className="h-6 leading-6 w-full form-input"
-                  type="text"
-                  value={this.state.mobile}
-                  maxLength={500}
-                  onChange={this.onMobileChanged}
-                />
               </div>
-            </div>
+            )}
           </div>
-        )}
+         
+        
+        </div>
       </div>
+    </div>
     );
   }
 

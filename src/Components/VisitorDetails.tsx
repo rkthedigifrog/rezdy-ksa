@@ -84,19 +84,18 @@ Saudi Arabia’s rich heritage, diverse people, vast opportunities and natural w
         {this.visitorElements}
 
         <div className="flex flex-row justify-center mt-3 w-full d-none ">
-         
-          <button className="button return-btn  px-4  py-1 mr-4  text-lg" onClick={this.onReturn}>
+          <button className="button return-btn  px-4  py-1 mr-4  text-xl font-bold text bg-white text-indigo-800 w-full md:w-4/12 lg:w-3/12 md:mx-4" onClick={this.onReturn}>
             <span>Return</span>
           </button>
           <button
-            className="button finalize-btn  text-center px-4 py-1 "
+            className="button finalize-btn  text-center px-4 py-1 bg-white text-indigo-800 w-full md:w-4/12 lg:w-3/12 md:mx-4"
             disabled={this.state.isValidated ? false : true}
             onClick={this.onClick}
           >
-            <span className="text-center w-full text-lg">Book Now</span>
-            <span className="text-center w-full text-sm">Please enter all the required fields</span>
+            <span className="text-center w-full text-xl  bg-white text-indigo-800 font-bold">Book Now</span>
+            <span className="text-center w-full text-sm bg-white text-indigo-800">(Please enter all required fields)</span>
           </button>
-        </div>
+	  </div>
         </div>
       </div>
     );

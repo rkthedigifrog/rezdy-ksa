@@ -184,3 +184,8 @@ button {
     outline:none;
 }
 .visitor-sep img{height:700px !important}
+.wcd button,.time_picker button{border-radius: 0 !important;border: 1px solid #000 !important;}
+
+.time_picker .select-border{position: relative;}
+
+.time_picker .select-border{}

@@ -68,7 +68,7 @@ export function Datepicker() {
       <div className="" middle-content>
         <div className="show-input">
           <div className="container  px-12">
-            <div className="flex flex-wrap mt-6 mb-12 px-12 justify-center">
+            <div className="flex flex-wrap mt-6 mb-12 px-12 justify-center time_picker">
               {
                 <div className="w-full md:w-4/12 lg:w-3/12 md:px-4 text-center">
                   <div className="select-border black-border text-lg">
@@ -119,13 +119,15 @@ export function Datepicker() {
           />
           <div className="absolute inset-0  z-100 set-z-index">
             <div className="container">
-              <div className="flex flex-row justify-center items-center sm:mt-0 md:mt-20 lg:mt-48">
-                <CalendarDays monthYear={currentMonthYear} /> //slider
+              <div className="flex flex-row justify-center items-center sm:mt-1 md:mt-20 lg:mt-48">
+                <CalendarDays monthYear={currentMonthYear} /> 
               </div>
-              <WheelChairDropdown /> //wheelchair selector
-              <div className="text-center pt-4 md:pt-20 mb-12">
+              <div className="w-full md:w-4/12 lg:w-3/12 md:px-4 text-center mx-auto wcd my-0 md:my-4">
+
+              <WheelChairDropdown /></div> 
+              <div className="text-center pt-3 md:pt-4 md:pt-20 mb-12 text-sm md:text-xl">
                 <button
-                  className="booknow"
+                  className="booknow py-2 font-bold text-sm md:text-xl"
                   onClick={() => {
                     Store.setBookingState(BookingState.VisitorDetails);
                   }}
@@ -137,7 +139,7 @@ export function Datepicker() {
           </div>
         </div>
       </div>
-      <h5 className="py-6 text-center">
+      <h5 className="py-6 text-center text-sm">
         *Please note: After your booking is confirmed we will send you a
         confirmation email.
       </h5>

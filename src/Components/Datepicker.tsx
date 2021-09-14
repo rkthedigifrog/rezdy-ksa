@@ -8,6 +8,9 @@ import { observer } from "mobx-react";
 import { ChevronLeft } from "@material-ui/icons";
 import { ChevronRight } from "@material-ui/icons";
 import calenderImage from "../Assets/Images/bg.jpg";
+import calenderIcon from "../Assets/Images/calder-icon.png";
+import visitorIcon from "../Assets/Images/user-icon.png"
+
 import Select from "./Select/SelectBox";
 import CalendarDays from "./DateSlider";
 import WheelChairDropdown from "./WheelChairDropdown";
@@ -38,8 +41,13 @@ export function Datepicker() {
   const getSelectOptions = () => {
     let options: JSX.Element[] = [];
 
-    for (let i = 0; i < 30; i++) {
-      options.push({ id: i, label: i + 1, value: i + 1 });
+    for (let i = 0; i <= 30; i++) {
+      if(i === 0){
+        options.push({ id: i, label: 'Enter the no. of visitors', value: '' });
+      }else{
+        options.push({ id: i, label: i + 1, value: i + 1 });
+      }
+      
     }
 
     return options;
@@ -62,7 +70,7 @@ export function Datepicker() {
     Store.product != null
       ? Store.product.images[0].largeSizeUrl
       : calenderImage;
-
+  
   return (
     <div>
       <div className="" middle-content>
@@ -74,6 +82,7 @@ export function Datepicker() {
                   <div className="select-border black-border text-lg">
                     <Select
                       id="months"
+                      label={calenderIcon}
                       options={allMonthYear}
                       selectedOption={currentMonthYear}
                       handelChange={(
@@ -87,7 +96,7 @@ export function Datepicker() {
                 </div>
               }
               <TimeDropDown />
-              <div className="w-full md:w-4/12 lg:w-3/12 md:px-4 text-center">
+              <div className="w-full md:w-4/12 lg:w-3/12 md:px-4 text-center lsb">
                 <div className="language-selector black-border text-lg">
                   <LangSelector></LangSelector>
                 </div>
@@ -97,6 +106,7 @@ export function Datepicker() {
                   <Select
                     //className="flex-1"
                     id="visitor"
+                    label={visitorIcon}
                     options={allVisitors}
                     selectedOption={currentVisitor}
                     handelChange={(event) => {
@@ -122,7 +132,7 @@ export function Datepicker() {
               <div className="flex flex-row justify-center items-center sm:mt-1 md:mt-20 lg:mt-48">
                 <CalendarDays monthYear={currentMonthYear} /> 
               </div>
-              <div className="w-full md:w-4/12 lg:w-3/12 md:px-4 text-center mx-auto wcd my-0 md:my-4">
+              <div className="w-full md:w-4/12 lg:w-3/12 md:px-4 text-center wcd my-0 md:my-4">
 
               <WheelChairDropdown /></div> 
               <div className="text-center pt-3 md:pt-4 md:pt-20 mb-12 text-sm md:text-xl">

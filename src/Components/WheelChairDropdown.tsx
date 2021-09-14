@@ -3,8 +3,14 @@ import { Listbox, Transition } from "@headlessui/react";
 import Select from "./Select/SelectBox";
 import { useState } from "react";
 import { Store } from "../System/Stores";
+import wheelchairIcon from "../Assets/Images/wheel_icon.png";
 
 const users: any = [
+  {
+    name: "1",
+    label: "Do you need a wheel chair?",
+    id: 0,
+  },
   {
     name: "1",
     label: "1",
@@ -63,6 +69,7 @@ function WheelChairDropdown() {
   return (
     <Select
       //className="flex-1"
+      label={wheelchairIcon}
       options={users}
       selectedOption={currentUser}
       handelChange={(event) => {

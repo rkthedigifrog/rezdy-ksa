@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Store } from "../System/Stores";
 import Select from "./Select/SelectBox";
+import LanguageIcon from "../Assets/Images/language-icon.png";
 
 //import Select, { ActionMeta, OptionTypeBase } from "react-select";
 
@@ -16,6 +17,11 @@ interface SelectButtonProps {
 }
 
 const users: any = [
+  {
+    name: "Language selector",
+    label: "Select a tour guide language",
+    id: 0,
+  },
   {
     name: "English",
     label: "English",
@@ -83,6 +89,7 @@ const users: any = [
   },
 ];
 
+
 /*const SelectUserButton: React.FunctionComponent<SelectButtonProps> = ({
   onSelect,
   languageOptions,
@@ -125,8 +132,8 @@ export default function LangSelector() {
 
   return (
     <Select
-        //className="flex-1"
-
+        className="flex-1"
+        label={LanguageIcon}
         options={users}
         selectedOption={currentUser}
         handelChange={(event) => {

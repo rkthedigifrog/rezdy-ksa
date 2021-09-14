@@ -36,7 +36,7 @@ const Selected = () => (
 );
 
 const Select = ({
-  /* label, */
+  label,
   options,
   selectedOption,
   handelChange,
@@ -61,9 +61,13 @@ const Select = ({
 
           <div className="relative mt-1">
             <span className="inline-block w-full rounded-md shadow-sm">
+            
               <Listbox.Button className="cursor-default relative w-full rounded-md border border-gray-300 bg-white pl-3 pr-10 py-2 text-left  transition ease-in-out duration-150">
+              <Listbox.Label><img src={label} /></Listbox.Label>
                 <span className="block truncate">{selectedOption.label}</span>
+                
                 <span className="absolute inset-y-0 right-0 flex items-center pr-2 ml-3 pointer-events-none">
+                
                   <Selector />
                 </span>
               </Listbox.Button>
@@ -80,6 +84,7 @@ const Select = ({
                   static
                   className="py-1 overflow-auto text-base rounded-md max-h-56 ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm"
                 >
+                  
                   {options.map((option) => {
                     return (
                       <Listbox.Option
